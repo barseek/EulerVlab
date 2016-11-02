@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_vlab" default="compile.module.vlab">
+  <dirname property="module.vlab.basedir" file="${ant.file.module_vlab}"/>
+  
+  <property name="module.jdk.home.vlab" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.vlab" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.vlab" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.vlab" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="vlab.output.dir" value="${module.vlab.basedir}/../output"/>
+  <property name="vlab.testoutput.dir" value="${module.vlab.basedir}/../output"/>
+  
+  <path id="vlab.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="vlab.module.production.classpath">
+    <path refid="${module.jdk.classpath.vlab}"/>
+    <path refid="library.ant-contrib-1.0b3.classpath"/>
+  </path>
+  
+  <path id="vlab.runtime.production.module.classpath">
+    <pathelement location="${vlab.output.dir}"/>
+    <path refid="library.ant-contrib-1.0b3.classpath"/>
+  </path>
+  
+  <path id="vlab.module.classpath">
+    <path refid="${module.jdk.classpath.vlab}"/>
+    <pathelement location="${vlab.output.dir}"/>
+    <path refid="library.ant-contrib-1.0b3.classpath"/>
+  </path>
+  
+  <path id="vlab.runtime.module.classpath">
+    <pathelement location="${vlab.output.dir}"/>
+    <path refid="library.ant-contrib-1.0b3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.vlab">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.vlab">
+    <patternset refid="excluded.from.module.vlab"/>
+  </patternset>
+  
+  <path id="vlab.module.sourcepath">
+    <dirset dir="${module.vlab.basedir}/../../vlab">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="vlab.module.test.sourcepath">
+    <dirset dir="${module.vlab.basedir}/../../vlab">
+      <include name="test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.vlab" depends="compile.module.vlab.production,compile.module.vlab.tests" description="Compile module vlab"/>
+  
+  <target name="compile.module.vlab.production" depends="register.custom.compilers" description="Compile module vlab; production classes">
+    <mkdir dir="${vlab.output.dir}"/>
+    <javac2 destdir="${vlab.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.vlab}/javac">
+      <compilerarg line="${compiler.args.vlab}"/>
+      <bootclasspath refid="vlab.module.bootclasspath"/>
+      <classpath refid="vlab.module.production.classpath"/>
+      <src refid="vlab.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.vlab"/>
+    </javac2>
+    
+    <copy todir="${vlab.output.dir}">
+      <fileset dir="${module.vlab.basedir}/../src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.vlab.tests" depends="register.custom.compilers,compile.module.vlab.production" description="compile module vlab; test classes" unless="skip.tests">
+    <mkdir dir="${vlab.testoutput.dir}"/>
+    <javac2 destdir="${vlab.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.vlab}/javac">
+      <compilerarg line="${compiler.args.vlab}"/>
+      <bootclasspath refid="vlab.module.bootclasspath"/>
+      <classpath refid="vlab.module.classpath"/>
+      <src refid="vlab.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.vlab"/>
+    </javac2>
+    
+    <copy todir="${vlab.testoutput.dir}">
+      <fileset dir="${module.vlab.basedir}/../test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.vlab" description="cleanup module">
+    <delete dir="${vlab.output.dir}"/>
+    <delete dir="${vlab.testoutput.dir}"/>
+  </target>
+</project>

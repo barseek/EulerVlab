@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+
+.general
+{    vertical-align: top;
+    padding: 5px 5px 5px 5px;}
+.holder
+{
+	width: 800px;
+    height: 600px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+#cy {
+	float:left;
+	width: 100%;
+	height: 100%;
+	/*border: 1px solid #ACACAC;*/
+}
+#table_body_note {
+    height: 91%;
+    width: 100%;
+    border-bottom: 2px solid #ddd;
+    border-left: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+    overflow: auto !important;
+}
+.ndiv_span {
+    float: left;
+    padding: 0px 0px 0px 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+#table_but {
+    height: 5%;
+    width: 100%;
+}
+.al_left {
+    width: 50%;
+    padding: 5px 0px 2px 0px;
+    text-align: left !important;
+    float: left !important;
+    font-size: 16px;
+}
+.al_right {
+    width: 50%;
+    text-align: right !important;
+    padding: 5px 0px 2px 0px;
+    float: left;
+    font-size: 16px;
+}
+
+#textbox{
+	float:right;
+	width:20%;
+	
+}
+
+text_answer {
+	margin-top:6px;
+	padding-left:12px;
+	float:left;
+    display: inline-block;
+    width: 100%;
+	font-weight:normal;
+}
+.al_cent {
+	
+	display: inline-block;
+    width: 100%;
+    height: 5%;
+    /*float: left;*/
+    font-size: 14px;
+	font-weight:normal;
+	color: #070665;
+    text-align: left !important;
+}
+
+
+
+#add_scroll {
+    height: 101% !important;
+}
+.div_span {
+    float: left;
+    text-align: center;
+}
+.check {
+    margin: 0px !important;
+}
+
+#table_head{
+	height: 10%;
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: #E6E6E5 !important;
+}
+#table-solut
+{
+	height: 85%;
+    width: 100%;
+    padding: 5px 0px 15px 0px;
+    text-align: center;
+}
+#div_info {
+        vertical-align: middle;
+    padding: 3px;
+    text-align: center;
+    float: right;
+}
+div {
+    display: block;
+}
+#header {
+    border-bottom: 1px solid lightgray;
+    height: 9%;
+    padding: 2px;
+}
+#title_matr {
+    height: 4%;
+    width: 100%;
+    color: #070665;
+    font-size: 16px;
+    text-align: left !important;
+}
+
+#header-name {
+	padding: 3px 3px 3px 4px;
+    vertical-align: middle;
+    float: left;
+    width: 85%;
+    height: 100%;
+    font-size: 20px;
+    text-align: left !important;
+}
+
+#graph, #table_with_obr {
+    padding: 5px 5px 4px 5px;
+    width: 50%;
+    height: 91%;
+    float: left;
+	text-align:left;
+    border-right: 1px solid lightgrey;
+	display:block;
+}
+#info
+{
+    
+	display:block;
+	padding: 5px 5px 5px 5px;
+    width: 50%;
+    height: 91%;
+    float: left;
+}
+
+#dang {
+    color: #C40E14;
+}
+#but_info {
+    background-image: linear-gradient(to bottom, #5bc0de 0%, #2aabd2 100%) !important;
+}
+
+#but_info:hover {
+    background: #2aabd2 0 -15px !important;
+}
+
+#back {
+    background-image: linear-gradient(to bottom, #fff 0%, #e0e0e0 100%) !important;
+}
+
+#back:hover {
+    background: #e0e0e0 0 -15px !important;
+}
+.footer{
+	padding:20px;
+	float:right; 
+    text-align:right !important;
+/*	border: 1px solid #ACACAC;*/
+	margin-left:15px;
+	width:350px;
+	display: block;
+	font-size: 16px;
+	margin-right:20px;
+	padding: 5px 0px 2px 0px;
+    float: right;
+}
+h1{
+	float:left;
+	padding-left:30px;
+	padding-top:10px;
+	margin:20px;
+	display:inline-table;
+}
+.menu
+{
+	margin-right:20px;
+	padding-top:20px;
+	padding-bottom:20px;
+	float:top;
+    margin-left:15px; 
+    text-align:right;
+	/*border: 1px solid #ACACAC;*/
+	margin-bottom:20px;
+	width:auto;
+	display: block;
+	
+}
+
+
+
+body
+{    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
+	
+table {
+	
+	/*padding:20px;*/
+	margin-top:6px;
+	display:table;
+    border: 0px solid #333; /* Рамка вокруг таблицы */ 
+    border-collapse: collapse; /* Способ отображения границы */ 
+    width: 90%; /* Ширина таблицы */ 
+    border-spacing: 7px 7px; /* Расстояние между ячейками */ 
+	margin-bottom:6px;
+   }
+   td {
+    padding: 4px; /* Поля вокруг текста */ 
+    border: 1px solid #000000; /* Граница вокруг ячеек */ 
+   }
+   #help {
+    display: none;
+    width: 100%;
+    height: 91%;
+}
+#title_help {
+    font-weight: bold;
+    font-size: 18px;
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    padding: 10px 30px 0px;
+}
+#cont_help {
+    font-size: 16px;
+    height: 90%;
+    width: 100%;
+    text-align: justify;
+    padding: 20px;
+}
+.abz {
+    text-indent: 30px;
+    margin: 5px;
+}
+
+
+
